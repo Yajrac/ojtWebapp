@@ -1,0 +1,115 @@
+#time-log .time-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+#time-log .time-col {
+  min-width: 0;
+  padding: 16px;
+  border: 1px solid #d8e3ef;
+  border-radius: 6px;
+  background: #ffffff;
+}
+#time-log .period {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 16px;
+  padding: 0;
+  background: transparent;
+  color: #21558a;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+}
+#time-log .period span { font-size: 0.7rem; font-weight: 400; color: #6a7889; }
+#time-log .time-row {
+  display: grid;
+  gap: 7px;
+  padding: 0;
+  justify-content: stretch;
+}
+#time-log .time-row + .time-row { margin-top: 14px; padding-top: 14px; border-top: 1px solid #e0e7f0; }
+#time-log .time-label { font-size: 0.7rem; font-weight: 500; color: #64748b; }
+#time-log .report-time-picker {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 8px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 7px;
+  min-width: 0;
+  border: 1px solid #cbd9e9;
+  border-radius: 4px;
+  background: white;
+}
+#time-log .report-time-picker:focus-within { border-color: #3979bb; box-shadow: 0 0 0 2px #e5effb; }
+#time-log .report-time-picker select {
+  width: 100%;
+  min-width: 0;
+  min-height: 40px;
+  padding: 5px 1px;
+  border: 0;
+  background: transparent;
+  color: #24486d;
+  font-size: 0.95rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  cursor: pointer;
+}
+#time-log .report-time-picker > span:not(.report-time-period) { color: #8b9aae; text-align: center; }
+#time-log .report-time-period {
+  padding: 4px 5px;
+  border-radius: 3px;
+  background: transparent;
+  color: #21558a;
+  font-size: 0.6rem;
+  letter-spacing: 0.03em;
+}
+#time-log .report-time-picker select:disabled { cursor: default; opacity: 0.55; }
+@media screen and (max-width: 600px) {
+  #time-log .time-columns { gap: 8px; }
+  #time-log .time-col { padding: 10px 8px; min-width: 0; }
+  #time-log .period { gap: 5px; font-size: 0.8rem; }
+  #time-log .period span { font-size: 0.6rem; }
+  #time-log .time-row .time-label { font-size: 0.65rem; }
+  #time-log .report-time-picker {
+    grid-template-columns: minmax(0, 1fr) 4px minmax(0, 1fr) auto;
+    gap: 2px;
+    padding: 2px 3px;
+  }
+  #time-log .report-time-picker select {
+    padding: 5px 0;
+    min-height: 40px;
+    font-size: 0.75rem;
+  }
+  #time-log .report-time-period { padding: 2px; font-size: 0.5rem; }
+}
+#report-camera { width: min(560px, calc(100% - 24px)); max-height: calc(100dvh - 24px); overflow: auto; margin: auto; padding: 20px; border: 1px solid #cbd9e9; border-radius: 6px; background: white; color: #24486d; }
+#report-camera::backdrop { background: rgb(15 30 48 / 70%); }
+.report-camera-heading { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 16px; }
+.report-camera-heading h2 { font-size: 1.1rem; }
+#report-camera video { display: block; width: 100%; max-height: 55dvh; background: #18212d; border-radius: 4px; }
+#report-camera p { font-size: 0.8rem; line-height: 1.6; margin-top: 12px; }
+.report-camera-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
+#report-camera button { min-height: 44px; padding: 10px 14px; border: 1px solid #cbd9e9; border-radius: 4px; background: white; color: #21558a; font: inherit; cursor: pointer; }
+#report-camera [data-take-photo] { background: #2866a5; color: white; border-color: #2866a5; }
+#report-camera [data-close-camera] { border: 0; font-size: 1.3rem; color: #b42318; }
+#report-camera [data-close-camera]:hover { background: #fff0ee; color: #912018; }
+#report-camera button:disabled { opacity: 0.5; cursor: default; }
+#report-camera .camera-captured-preview { width: 100%; max-height: 55dvh; object-fit: contain; background: #18212d; border-radius: 4px; }
+#report-camera [hidden] { display: none !important; }
+#report-camera [data-use-photo] { background: #2866a5; border-color: #2866a5; color: white; }
+#report-empty {
+  width: min(400px, calc(100% - 32px));
+  max-height: calc(100dvh - 32px);
+  overflow: auto;
+  margin: auto;
+  padding: 24px;
+  border: 1px solid #d4e0ed;
+  border-radius: 6px;
+  background: white;
+  color: #24486d;
+}
+#report-empty::backdrop { background: rgb(15 30 48 / 60%); }
+#report-empty h2 { font-size: 1.15rem; margin-bottom: 12px; }
+#report-empty p { font-size: 0.85rem; line-height: 1.6; margin-bottom: 20px; color: #667588; }
+#report-empty button { min-height: 44px; padding: 10px 20px; border: 0; border-radius: 4px; background: #2866a5; color: white; font: inherit; cursor: pointer; }

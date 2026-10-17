@@ -1,0 +1,63 @@
+@media screen {
+  .profile-page .profile-reset { grid-column: 1 / -1; }
+  .profile-reset p { font-size: 0.8rem; color: #667588; line-height: 1.6; margin-bottom: 14px; }
+  .profile-reset button { min-height: 44px; padding: 10px 14px; border: 1px solid #b42318; border-radius: 4px; background: white; color: #b42318; font: inherit; cursor: pointer; }
+  .profile-reset button:hover { background: #fff0ee; }
+  .profile-page .device > .profile-header {
+    background: #234e7a;
+    padding: calc(12px + env(safe-area-inset-top, 0px)) clamp(16px, 4vw, 28px) 20px;
+  }
+  .profile-page .header-top { gap: 10px; }
+  .profile-page .profile-header .icon-btn { width: 36px; min-width: 36px; height: 36px; min-height: 36px; border-radius: 4px; background: rgb(255 255 255 / 9%); }
+  .profile-page .device > .profile-header .avatar-block { margin-top: 16px; padding-top: 16px; border-top: 1px solid rgb(255 255 255 / 17%); gap: 14px; }
+  .profile-page .device > .profile-header .avatar { width: 48px; height: 48px; border: 1px solid rgb(255 255 255 / 30%); border-radius: 6px; background: #326493; color: white; font-size: 1.05rem; }
+  .profile-page .identity h2 { color: white; font-size: 1.15rem; line-height: 1.4; overflow-wrap: anywhere; }
+  .profile-page .identity .role { margin-top: 3px; color: #dbe8f5; font-size: 0.75rem; }
+  .profile-page .identity .badge { margin-top: 8px; padding: 4px 8px; border-radius: 4px; background: #e5effb; color: #21558a; font-size: 0.65rem; }
+  .profile-page .profile-main { gap: 18px; }
+  .profile-page .profile-section { padding: 20px; border: 1px solid #d8e3ef; border-radius: 6px; background: white; box-shadow: none; }
+  .profile-page .section-title { margin-bottom: 18px; padding-bottom: 12px; border-bottom: 1px solid #e3eaf3; color: #24486d; font-size: 0.82rem; letter-spacing: 0.02em; }
+  .profile-page .section-title .tick { display: none; }
+  .profile-page .info-row { padding: 13px 0; gap: 12px; align-items: center; }
+  .profile-page .info-icon { width: 36px; height: 36px; min-width: 36px; border-radius: 4px; background: #eaf2fc; color: #2866a5; }
+  .profile-page .info-icon svg { stroke: #2866a5; width: 18px; height: 18px; }
+  .profile-page .info-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.05em; color: #718095; }
+  .profile-page .info-value { margin-top: 3px; font-size: 0.85rem; font-weight: 500; color: #303b48; }
+  .profile-page .supervisor-card { padding: 12px; gap: 12px; background: #f5f8fc; border: 1px solid #e1e8f2; border-radius: 4px; }
+  .profile-page .sup-avatar { background: #e5effb; color: #21558a; border-radius: 4px; }
+  .profile-page .sup-name { color: #24486d; font-size: 0.9rem; }
+  .profile-page .sup-role { color: #6c7888; font-size: 0.75rem; }
+  .profile-page .sup-action { background: transparent; color: #2866a5; }
+  .profile-page .progress-row { padding: 10px 0; }
+  .profile-page .p-value { font-size: 0.85rem; color: #24486d; }
+  .profile-page .tag { padding: 7px 10px; border-radius: 4px; font-size: 0.7rem; }
+  .profile-page .progress-wrap { gap: 20px; }
+  .profile-page .progress-ring {
+    position: relative;
+    isolation: isolate;
+    width: 112px;
+    height: 112px;
+    border-radius: 50%;
+    background: conic-gradient(#ef4444 0%, #f97316 17%, #eab308 34%, #22c55e 51%, #3b82f6 68%, #6366f1 84%, #a855f7 100%);
+  }
+  .profile-page .progress-ring::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: conic-gradient(transparent calc(var(--pct, 0) * 1%), #e5eaf1 0);
+  }
+  .profile-page .progress-ring::after { content: ""; position: absolute; inset: 10px; border-radius: 50%; background: white; }
+  .profile-page .progress-ring .ring-label { position: relative; z-index: 1; color: #24486d; font-size: 1.4rem; }
+  .profile-page .progress-ring .ring-label span { color: #718095; font-size: 0.65rem; font-weight: 400; }
+  .profile-page .progress-row + .progress-row { border-top: 1px solid #e3eaf3; }
+  .profile-page .progress-row .p-label { font-size: 0.75rem; font-weight: 400; }
+  .profile-page .progress-row .sw { display: none; }
+  .profile-page .tag-row { gap: 8px; }
+  .profile-page .tag.navy { border: 1px solid #d4e0ed; color: #21558a; background: #eaf2fc; }
+}
+@media screen and (max-width: 600px) {
+  .profile-page .profile-section { padding: 16px; }
+  .profile-page .device > .profile-header .avatar { width: 44px; height: 44px; }
+  .profile-page .identity h2 { font-size: 1.05rem; }
+}

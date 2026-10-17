@@ -1,0 +1,609 @@
+:root {
+  --font-body: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Poppins", ui-sans-serif, system-ui, sans-serif;
+}
+body {
+  font-family: var(--font-body);
+}
+input,
+textarea,
+select,
+button {
+  font-family: inherit;
+}
+:root {
+  --nav-background: #234e7a;
+  --nav-active: #dcecff;
+  --nav-text: #e8ebef;
+  --nav-active-text: #24486d;
+}
+/* Shared responsive layout for the OJT screens. */
+.prototype-note {
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: #c7cdd5;
+  margin: 18px 0 0;
+}
+.prototype-photo-slot {
+  aspect-ratio: 3 / 4;
+  border: 1.5px dashed #c7ceda;
+  border-radius: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: #666d76;
+  background: #f3f4f6;
+  font-size: 0.75rem;
+}
+.prototype-photo-slot svg {
+  width: 28px;
+  height: 28px;
+  stroke: #7092b6;
+  stroke-width: 1.5;
+}
+button:disabled {
+  cursor: default;
+}
+.save-fab:disabled {
+  opacity: 0.55;
+  box-shadow: none;
+}
+.add-photo-btn:has(input:disabled) {
+  opacity: 0.6;
+  cursor: default;
+}
+@media screen {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-padding-top: 24px;
+  }
+  body {
+    background: #f3f3ed;
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+  .device {
+    width: 100%;
+    max-width: 1200px;
+    min-height: 100vh;
+    min-height: 100dvh;
+    margin: 0 auto;
+    border: 0;
+    border-radius: 0;
+    box-shadow: 0 0 60px rgba(16, 40, 73, 0.06);
+    overflow: visible;
+  }
+  .app-header,
+  .report-header,
+  .profile-header,
+  .setup-header {
+    padding: calc(24px + env(safe-area-inset-top, 0px)) clamp(20px, 4vw, 48px) 28px;
+  }
+  .app-main,
+  .report-main,
+  .profile-main {
+    padding: 24px clamp(16px, 4vw, 48px) 120px;
+    overflow: visible;
+  }
+  .card,
+  .report-section,
+  .profile-section {
+    min-width: 0;
+    box-shadow: 0 5px 18px rgba(16, 40, 73, 0.035);
+    border-color: #e0e6ef;
+  }
+  .section-head {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .brand-text h1,
+  .identity h1,
+  .info-value,
+  .s-value {
+    overflow-wrap: anywhere;
+  }
+  .tab-bar {
+    position: fixed;
+    left: 50%;
+    right: auto;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 1200px;
+    z-index: 20;
+    padding: 0 env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px)
+      env(safe-area-inset-left, 0px);
+    background: var(--nav-background);
+    border-top: 1px solid #d4dfe5;
+    gap: 0;
+    box-shadow: 0 -4px 24px rgba(16, 40, 73, 0.06);
+  }
+  .tab-btn {
+    flex: 1;
+    min-width: 0;
+    min-height: 48px;
+    border-radius: 0;
+    text-decoration: none;
+    justify-content: center;
+    font-family: inherit;
+  }
+  .tab-bar .tab-btn {
+    color: var(--nav-text);
+    min-height: 60px;
+  }
+  .tab-bar .tab-btn.active {
+    background: var(--nav-active);
+    color: var(--nav-active-text);
+  }
+  .tab-bar .tab-btn svg {
+    stroke: currentColor;
+  }
+  .tab-bar .tab-btn:hover {
+    background: #326493;
+  }
+  .tab-bar .tab-btn.active:hover {
+    background: #c8ddf4;
+  }
+  .tab-bar .tab-btn:focus-visible {
+    outline: 3px solid white;
+    outline-offset: -5px;
+  }
+  .tab-btn span {
+    font-size: 0.75rem;
+  }
+  button,
+  .add-photo-btn,
+  .chip {
+    touch-action: manipulation;
+  }
+  button,
+  .icon-btn,
+  .sup-action,
+  .slot-clear {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  input:not([type="file"]),
+  textarea,
+  select {
+    font-size: 16px;
+    max-width: 100%;
+  }
+  :is(button, a, input, textarea, select):focus-visible {
+    outline: 3px solid #537fbe;
+    outline-offset: 4px;
+  }
+  .progress-stats,
+  .log-info,
+  .field {
+    min-width: 0;
+  }
+  .stat-line {
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .add-photo-row,
+  .toggle-row {
+    flex-wrap: wrap;
+  }
+  .add-photo-btn {
+    flex: 1 1 150px;
+  }
+  .save-fab {
+    position: fixed;
+    right: max(20px, calc((100vw - 1160px) / 2));
+    bottom: calc(88px + env(safe-area-inset-bottom, 0px));
+    transform: none;
+    z-index: 21;
+  }
+  .save-fab:active {
+    transform: scale(0.96);
+  }
+  .save-toast {
+    position: fixed;
+    bottom: calc(150px + env(safe-area-inset-bottom, 0px));
+    max-width: calc(100% - 32px);
+    white-space: normal;
+    text-align: center;
+    z-index: 22;
+  }
+  .setup-main {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 36px 24px;
+    overflow: visible;
+  }
+  .setup-footer {
+    margin-top: auto;
+    padding: 20px max(24px, calc((100% - 672px) / 2)) calc(20px + env(safe-area-inset-bottom, 0px));
+  }
+  .setup-footer .btn {
+    min-height: 52px;
+  }
+  .summary-row {
+    gap: 20px;
+  }
+  .summary-row .s-value {
+    min-width: 0;
+  }
+  .welcome-page {
+    margin: 0;
+    font-family: var(--font-body);
+    color: #24486d;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+  }
+  .welcome-card {
+    width: 100%;
+    max-width: 820px;
+    background: white;
+    border: 1px solid #e0e6ef;
+    border-radius: 0;
+    padding: clamp(28px, 7vw, 80px);
+    box-shadow: 0 20px 60px rgba(16, 40, 73, 0.08);
+  }
+  .welcome-card::before {
+    content: "OJT TRACKER";
+    display: block;
+    color: #21558a;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    margin-bottom: 24px;
+  }
+  .welcome-card h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+    margin: 0 0 20px;
+  }
+  .welcome-card p {
+    color: #666d76;
+    line-height: 1.7;
+    margin-bottom: 32px;
+    overflow-wrap: anywhere;
+  }
+  .welcome-card a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 48px;
+    padding: 0 24px;
+    background: #2866a5;
+    color: white;
+    border-radius: 0;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  @media (min-width: 768px) {
+    .app-main,
+    .profile-main,
+    .report-main {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+      align-content: start;
+      align-items: start;
+    }
+    .card,
+    .report-section,
+    .profile-section {
+      margin-bottom: 0;
+      padding: 28px;
+    }
+    #hero-clock {
+      min-height: 250px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .clock-time {
+      font-size: clamp(3rem, 5vw, 4.3rem);
+    }
+    #logs-recent {
+      grid-column: 1 / -1;
+    }
+    .log-item {
+      padding: 18px 0;
+    }
+    .brand-text h1 {
+      font-size: 1.4rem;
+    }
+    .report-header h1 {
+      font-size: 1.8rem;
+    }
+    .header-fields {
+      max-width: 720px;
+    }
+    .tab-bar {
+      justify-content: stretch;
+      gap: 0;
+    }
+    .tab-btn {
+      flex: 1;
+      flex-direction: row;
+      gap: 10px;
+      padding: 12px 20px;
+    }
+    .tab-btn span {
+      font-size: 0.85rem;
+    }
+  }
+  @media (max-width: 380px) {
+    #progress-hours .progress-layout,
+    .progress-wrap {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .ring-wrap {
+      align-self: center;
+    }
+    .progress-ring {
+      align-self: center;
+    }
+    .clock-time {
+      font-size: 2.5rem;
+    }
+    .card,
+    .report-section,
+    .profile-section {
+      padding: 16px;
+    }
+    .time-col,
+    .hours-card {
+      min-width: 0;
+      flex-basis: 100%;
+    }
+    .summary-row {
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.progress-ring {
+  border-radius: 50%;
+}
+
+/* Laptop and desktop navigation uses a full-height sidebar. */
+@media screen and (min-width: 1024px) {
+  .app-shell .device {
+    max-width: none;
+    padding-left: 232px;
+    box-shadow: none;
+  }
+  .app-shell .tab-bar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: auto;
+    transform: none;
+    width: 232px;
+    max-width: none;
+    height: 100vh;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    padding: 32px 0 24px;
+    border: 0;
+    border-right: 1px solid #37628d;
+    box-shadow: none;
+    overflow-y: auto;
+  }
+  .app-shell .tab-bar::before {
+    content: "OJT TRACKER";
+    display: block;
+    padding: 12px 28px 36px;
+    color: white;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+  }
+  .app-shell .tab-bar .tab-btn {
+    flex: 0 0 auto;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 14px;
+    min-height: 60px;
+    padding: 18px 28px;
+  }
+  .app-shell .tab-btn span {
+    font-size: 0.9rem;
+  }
+  .app-shell .tab-btn svg {
+    flex-shrink: 0;
+  }
+  .app-shell :is(.app-main, .report-main, .profile-main, .gallery-main) {
+    padding-bottom: 48px;
+  }
+  .app-shell .save-fab {
+    right: 28px;
+    bottom: 24px;
+  }
+  .app-shell .save-toast {
+    left: calc(50% + 116px);
+    bottom: 90px;
+  }
+}
+
+/* Match all page headers to the shared navigation palette. */
+@media screen {
+  .device > :is(.app-header, .report-header, .profile-header, .setup-header, .gallery-header) {
+    background: var(--nav-background);
+    color: var(--nav-text);
+  }
+}
+
+/* Compact workspace proportions for laptops and desktop monitors. */
+@media screen and (min-width: 1024px) {
+  html {
+    font-size: 14px;
+  }
+
+  .app-shell .device {
+    padding-left: 200px;
+  }
+
+  .app-shell .tab-bar {
+    width: 200px;
+    padding-top: 20px;
+  }
+
+  .app-shell .tab-bar::before {
+    padding: 10px 22px 26px;
+  }
+
+  .app-shell .tab-bar .tab-btn {
+    min-height: 48px;
+    padding: 12px 22px;
+    gap: 12px;
+  }
+
+  .app-shell .tab-btn svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .app-shell .device > :is(.app-header, .report-header, .profile-header, .gallery-header),
+  .prototype-setup .setup-header {
+    padding: 20px 28px;
+  }
+
+  .app-shell :is(.app-main, .report-main, .profile-main, .gallery-main) {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 20px 28px 40px;
+    gap: 18px;
+  }
+
+  .app-shell :is(.card, .report-section, .profile-section, .gallery-day, .gallery-toolbar) {
+    padding: 20px;
+  }
+
+  .app-shell #hero-clock {
+    min-height: 190px;
+  }
+
+  .app-shell .clock-time {
+    font-size: 3.2rem;
+  }
+
+  .app-shell .log-item {
+    padding: 12px 0;
+  }
+
+  .app-shell .section-head {
+    margin-bottom: 12px;
+  }
+
+  .app-shell .profile-header .avatar-block {
+    margin-top: 18px;
+    gap: 16px;
+  }
+
+  .app-shell .profile-header .avatar {
+    width: 64px;
+    height: 64px;
+    font-size: 1.5rem;
+  }
+
+  .app-shell .profile-header .identity h1 {
+    font-size: 1.6rem;
+  }
+
+  .app-shell .profile-main .progress-ring {
+    width: 100px;
+    height: 100px;
+  }
+
+  .app-shell .profile-main .section-title {
+    margin-bottom: 16px;
+  }
+
+  .app-shell .profile-main .info-row {
+    padding: 12px 0;
+  }
+
+  .app-shell .gallery-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .app-shell .gallery-subnav {
+    margin-bottom: 20px;
+  }
+
+  .app-shell .gallery-subnav a {
+    min-height: 48px;
+    padding: 10px;
+  }
+
+  .app-shell .gallery-section-intro,
+  .app-shell .gallery-day {
+    margin-bottom: 20px;
+  }
+
+  .app-shell .gallery-grid {
+    gap: 14px;
+  }
+
+  .app-shell .gallery-photo img,
+  .app-shell .prototype-gallery-image {
+    height: 180px;
+    aspect-ratio: auto;
+  }
+
+  .app-shell .gallery-photo figcaption {
+    padding: 10px 12px;
+  }
+
+  .app-shell.gallery-upload-page .upload-photo-fields {
+    padding: 16px;
+    gap: 18px;
+  }
+
+  .app-shell input:not([type="file"]),
+  .app-shell textarea,
+  .app-shell select,
+  .prototype-setup .text-input {
+    font-size: 14px;
+  }
+
+  .app-shell.gallery-upload-page .upload-photo-fields input {
+    min-height: 44px;
+    margin-top: 8px;
+  }
+
+  .prototype-setup .setup-form-main {
+    max-width: 880px;
+    padding: 28px 24px;
+  }
+
+  .prototype-setup .setup-form-section {
+    padding: 24px;
+    margin-bottom: 18px;
+  }
+
+  .prototype-setup .setup-field-grid {
+    gap: 18px;
+  }
+
+  .app-shell .save-toast {
+    left: calc(50% + 100px);
+  }
+}

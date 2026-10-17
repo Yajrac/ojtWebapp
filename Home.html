@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="./js/app-entry.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>OJT Tracker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./css/Home.css">
+<link rel="stylesheet" href="./css/shared.css">
+    <link rel="stylesheet" href="./css/theme.css" />
+    <link rel="stylesheet" href="./css/skeleton.css" />
+    <script src="./js/skeleton.js"></script>
+    <link rel="stylesheet" href="./css/desktop.css" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <meta name="theme-color" content="#234e7a" />
+    <script src="./js/offline.js" defer></script>
+</head>
+<body class="app-shell">
+
+<div class="device">
+
+  <!-- ============================================================
+       HEADER — app bar: brand mark, greeting, avatar
+       ============================================================ -->
+  <header class="app-header" id="app-header">
+    <div class="brand">
+      <div class="brand-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5 12 4l9 5.5-9 5.5-9-5.5Z"/><path d="M7 12v5c0 1.1 2.2 2 5 2s5-.9 5-2v-5"/></svg>
+      </div>
+      <div class="brand-text">
+        <p class="eyebrow" id="greeting">Good morning</p>
+        <h1 data-profile-name>Your profile</h1>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       MAIN — scrollable body containing all tracked sections
+       ============================================================ -->
+  <main class="app-main" id="app-main">
+
+
+    <!-- ---------- SECTION: HERO TIME CLOCK ---------- -->
+    <section class="card" id="hero-clock" aria-label="Time clock">
+      <div class="status-row">
+        <span class="status-pill" id="status-pill"><span class="status-dot"></span>Time</span>
+        <span class="hero-date" id="hero-date"></span>
+      </div>
+      <div class="clock-face">
+        <div class="clock-time" id="clock-time" aria-label="Current Philippine time"></div>
+        <p class="clock-loc"><span class="onsite-status">On-site</span><span data-profile-summary></span></p>
+      </div>
+    </section>
+
+    <!-- ---------- SECTION: HOURS PROGRESS ---------- -->
+    <section class="card" id="progress-hours" aria-label="OJT hours progress">
+      <div class="section-head">
+        <h2>Hours progress</h2>
+        <span class="section-sub" data-hours-summary>Loading hours...</span>
+      </div>
+      <div class="progress-layout">
+        <div class="ring-wrap">
+          <svg viewBox="0 0 118 118" width="118" height="118">
+            <defs>
+              <linearGradient id="hours-rainbow" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#ef4444" />
+                <stop offset="17%" stop-color="#f97316" />
+                <stop offset="34%" stop-color="#eab308" />
+                <stop offset="51%" stop-color="#22c55e" />
+                <stop offset="68%" stop-color="#3b82f6" />
+                <stop offset="84%" stop-color="#6366f1" />
+                <stop offset="100%" stop-color="#a855f7" />
+              </linearGradient>
+            </defs>
+            <circle class="ring-bg" cx="59" cy="59" r="50"/>
+            <circle class="ring-fg" id="ring-fg" cx="59" cy="59" r="50"/>
+          </svg>
+          <div class="ring-label">
+            <span class="pct">0%</span>
+            <span class="pct-sub">complete</span>
+          </div>
+        </div>
+        <div class="progress-stats">
+          <div class="stat-line"><span>This day</span><b data-hours-day>—</b></div>
+          <div class="hr"></div>
+          <div class="stat-line"><span>Remaining</span><b data-hours-remaining>—</b></div>
+          <div class="hr"></div>
+          <div class="stat-line"><span>Estimated end <small class="end-date-note" data-estimate-basis>Based on saved time logs</small></span><b data-estimated-end>—</b></div>
+          <div class="hr"></div>
+          <div class="stat-line"><span>Completed reports</span><b data-reports-complete>—</b></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card home-calendar" aria-labelledby="calendar-heading">
+      <div class="section-head">
+        <h2 id="calendar-heading">Calendar</h2>
+        <button type="button" class="calendar-today" data-calendar-today>Today</button>
+      </div>
+      <div class="calendar-toolbar">
+        <button type="button" class="calendar-arrow" data-calendar-prev aria-label="Previous month">&#8249;</button>
+        <h3 data-calendar-month aria-live="polite"></h3>
+        <button type="button" class="calendar-arrow" data-calendar-next aria-label="Next month">&#8250;</button>
+      </div>
+      <div class="calendar-weekdays" aria-hidden="true"><span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span></div>
+      <div class="calendar-days" data-calendar-days aria-label="Dates"></div>
+    </section>
+
+    <!-- ---------- SECTION: RECENT TIME LOGS ---------- -->
+    <section class="card" id="logs-recent" aria-label="Recent time logs">
+      <div class="section-head">
+        <h2>Recent logs</h2>
+        <span class="section-sub" data-report-count></span>
+        <a class="home-logs-view-all" href="./pages/logs.html">View all &rarr;</a>
+      </div>
+      <ul id="home-report-logs" data-limit="5"><li class="home-reports-empty">Loading reports...</li></ul>
+    </section>
+
+
+  </main>
+
+  <!-- ============================================================
+       BOTTOM TAB BAR — primary app navigation
+       ============================================================ -->
+  <nav class="tab-bar" id="tab-bar" aria-label="Primary">
+    <a class="tab-btn active" href="./Home.html" aria-current="page">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v9a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1v-9"/></svg>
+      <span>Home</span>
+    </a>
+    <a class="tab-btn" href="./pages/gallery.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8" cy="8" r="1.5"/><path d="m3 17 6-6 4 4 3-3 5 5"/></svg>
+      <span>Gallery</span>
+    </a>
+    <a class="tab-btn" href="./pages/report.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4"/></svg>
+      <span>Report</span>
+    </a>
+    <a class="tab-btn" href="./pages/profile.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.2"/><path d="M5 20c1.2-3.6 4-5.5 7-5.5S17.8 16.4 19 20"/></svg>
+      <span>Profile</span>
+    </a>
+  </nav>
+
+</div>
+
+<script src="./js/home-calendar.js"></script>
+<script src="./js/home-clock.js"></script>
+<script src="./js/report-status.js"></script>
+<script src="./js/home-reports.js"></script>
+<script src="./js/profile-identity.js"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "id": "./",
+  "name": "OJT Tracker",
+  "short_name": "OJT Tracker",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f3f6fa",
+  "theme_color": "#234e7a",
+  "icons": [
+    { "src": "./assets/app-icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

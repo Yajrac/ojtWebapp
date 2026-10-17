@@ -1,0 +1,101 @@
+/* Larger-screen workspace; mobile navigation keeps its own layout. */
+@media screen and (min-width: 1024px) {
+  body.app-shell { --desktop-sidebar: 224px; }
+  body.app-shell .device {
+    padding-left: var(--desktop-sidebar);
+    background: #f3f6fa;
+  }
+  body.app-shell .tab-bar {
+    width: var(--desktop-sidebar);
+    padding: 24px 14px;
+    gap: 8px;
+    background: #1d4269;
+    border-right: 1px solid #31567c;
+  }
+  body.app-shell .tab-bar::before {
+    content: "OJT TRACKER";
+    padding: 14px 12px 28px;
+    margin-bottom: 18px;
+    border-bottom: 1px solid #3a5c80;
+    color: white;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+  }
+  body.app-shell .tab-bar::after {
+    content: "YOUR INTERNSHIP WORKSPACE";
+    margin-top: auto;
+    padding: 24px 12px 8px;
+    color: #adc6e1;
+    font-size: 0.58rem;
+    line-height: 1.8;
+    letter-spacing: 0.12em;
+  }
+  body.app-shell .tab-bar .tab-btn {
+    min-height: 48px;
+    padding: 13px 14px;
+    gap: 13px;
+    color: #cfdef0;
+    border: 1px solid transparent;
+    border-radius: 5px;
+  }
+  body.app-shell .tab-bar .tab-btn.active {
+    color: white;
+    background: #32689e;
+    border-color: #4c7eb2;
+    box-shadow: none;
+  }
+  body.app-shell .tab-bar .tab-btn.active::after { background: #a6d4ff; height: 16px; width: 3px; }
+  body.app-shell .tab-bar .tab-btn:hover { color: white; background: #2a557f; }
+  body.app-shell .tab-bar .tab-btn.active:hover { background: #3973ac; }
+  body.app-shell .tab-bar .tab-btn svg { width: 19px; height: 19px; }
+  body.app-shell .device > :is(.app-header, .report-header, .profile-header, .gallery-header) {
+    padding-right: clamp(28px, 3vw, 52px);
+    padding-left: clamp(28px, 3vw, 52px);
+    border-bottom: 1px solid #315c87;
+  }
+  body.app-shell :is(.app-main, .gallery-main, .report-main, .profile-main) {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 28px clamp(24px, 3vw, 48px) 48px;
+    gap: 22px;
+  }
+  body.app-shell :is(.card, .report-section, .profile-section) {
+    padding: 24px;
+    border-color: #dce5ef;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgb(30 65 105 / 3%);
+  }
+  body.app-shell .section-head { margin-bottom: 18px; }
+  body.app-shell .gallery-subnav { margin-bottom: 28px; }
+  body.app-shell .gallery-subnav a { flex: 0 1 auto; min-width: 130px; padding: 14px 20px; font-size: 0.82rem; }
+  body.app-shell .gallery-section-intro { margin-bottom: 26px; }
+  body.app-shell .gallery-section-intro h2 { font-size: 1.5rem; }
+  body.app-shell .home-calendar { align-self: stretch; }
+  body.app-shell .home-calendar .calendar-toolbar { margin: 22px 0; }
+  body.app-shell .home-calendar .calendar-date { min-height: 46px; }
+  body.app-shell #logs-recent .log-item { padding: 16px 0; }
+  body.app-shell .report-main #time-log,
+  body.app-shell .report-main #documentation-output,
+  body.app-shell .report-main #hours-summary { grid-column: 1 / -1; }
+  body.app-shell #time-log .time-columns { gap: 20px; }
+  body.app-shell #time-log .time-col { padding: 20px; }
+  body.app-shell #time-log .time-row { grid-template-columns: 75px minmax(0, 1fr); align-items: center; gap: 12px; }
+  body.app-shell .report-main #documentation-output .photo-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  body.app-shell.profile-page .profile-main { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); }
+  body.app-shell.profile-page .profile-information { grid-column: 1; grid-row: 1 / 3; }
+  body.app-shell.profile-page .profile-progress { grid-column: 2; grid-row: 1; }
+  body.app-shell.profile-page .profile-supervisor { grid-column: 2; grid-row: 2; }
+  body.app-shell.profile-page .profile-reset { grid-column: 1 / -1; grid-row: auto; }
+  body.app-shell .save-fab { right: 28px; bottom: 24px; border-radius: 6px; }
+  body.app-shell .save-toast { left: calc(50% + 112px); }
+  body.personal-gallery-page .photo-group-open { grid-template-columns: 190px minmax(0, 1fr) 32px; padding: 20px 16px; }
+  body.personal-gallery-page .photo-group-stack { width: 190px; }
+  body.personal-gallery-page .photo-group-open:hover { background: #eaf2fc; }
+}
+@media screen and (min-width: 1600px) {
+  body.app-shell { --desktop-sidebar: 248px; }
+  body.app-shell :is(.app-main, .gallery-main, .report-main, .profile-main) { max-width: 1380px; }
+  body.app-shell .tab-bar { padding-right: 18px; padding-left: 18px; }
+  body.app-shell .save-toast { left: calc(50% + 124px); }
+}

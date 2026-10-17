@@ -1,0 +1,266 @@
+/* Album stacks use real uploaded photos, without enclosing card borders. */
+.photo-viewer-close {
+  display: grid;
+  place-items: center;
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+  padding: 12px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: #b42318;
+  cursor: pointer;
+}
+.photo-viewer-close svg { width: 20px; height: 20px; }
+.photo-viewer-close:hover { background: #fff0ee; color: #912018; }
+.photo-title-save {
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+  padding: 11px;
+}
+.photo-title-save svg { width: 20px; height: 20px; }
+.photo-album-tools { display: grid; gap: 16px; margin-bottom: 18px; }
+.photo-album-title-form { display: flex; gap: 10px; align-items: flex-end; flex-wrap: wrap; }
+.photo-album-title-form label { display: grid; gap: 8px; flex: 1 1 200px; font-size: 0.8rem; font-weight: 500; }
+.photo-album-title-form input { width: 100%; padding: 12px; border: 1px solid #cbd1d9; border-radius: 6px; color: #282c32; background: white; }
+.photo-album-add { display: grid; gap: 8px; padding: 14px; border: 1px dashed #c4cdd8; border-radius: 6px; font-size: 0.8rem; color: #21558a; }
+.photo-album-add input { width: 100%; min-width: 0; font: inherit; }
+@media screen {
+  .personal-gallery-page .gallery-day {
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    padding: 12px 0;
+  }
+  .personal-gallery-page .gallery-day-header {
+    padding-bottom: 18px;
+    border-bottom: 1px solid #dfe2e6;
+    margin-bottom: 24px;
+  }
+  .personal-gallery-page [data-personal-collection] {
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 180px), 1fr));
+    gap: 32px 24px;
+    counter-reset: album;
+  }
+  .personal-gallery-page .personal-photo-group {
+    counter-increment: album;
+  }
+  .personal-gallery-page .photo-group-open {
+    position: relative;
+    isolation: isolate;
+    padding: 28px 12px 18px;
+    text-align: left;
+    align-items: stretch;
+    border-radius: 6px;
+    transition: background 180ms ease;
+  }
+  .personal-gallery-page .photo-group-open::before {
+    content: "ALBUM " counter(album, decimal-leading-zero);
+    position: absolute;
+    top: 6px;
+    left: 12px;
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    color: #7b828c;
+  }
+  .personal-gallery-page .photo-group-open::after {
+    content: "↗";
+    position: absolute;
+    right: 12px;
+    bottom: 24px;
+    display: grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #e5effb;
+    color: #21558a;
+    font-size: 1rem;
+  }
+  .personal-gallery-page .photo-group-open:hover {
+    background: #f0f2f4;
+  }
+  .personal-gallery-page .photo-group-stack {
+    width: 100%;
+    height: 172px;
+    margin: 6px 0 22px;
+  }
+  .personal-gallery-page .photo-group-stack::before {
+    content: "";
+    position: absolute;
+    inset: 20px 4px 0;
+    background: transparent;
+    z-index: -1;
+  }
+  .personal-gallery-page .photo-group-stack img {
+    left: calc(50% - 55px);
+    top: 14px;
+    width: 110px;
+    height: 142px;
+    border: 5px solid #ffffff;
+    border-bottom-width: 13px;
+    border-radius: 3px;
+    box-shadow: 0 5px 14px rgb(22 60 57 / 15%);
+    transform: rotate(calc((var(--stack-index) - 1.5) * 8deg));
+  }
+  .personal-gallery-page .photo-group-open:hover .photo-group-stack img {
+    transform: rotate(calc((var(--stack-index) - 1.5) * 13deg)) translateY(-4px);
+  }
+  .personal-gallery-page .photo-group-title {
+    padding-right: 32px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    letter-spacing: -0.02em;
+  }
+  .personal-gallery-page .photo-group-count {
+    align-self: flex-start;
+    margin-top: 7px;
+    color: #6c7480;
+    font-size: 0.72rem;
+  }
+  .personal-gallery-page .photo-group-viewer {
+    padding: 24px;
+    background: #fafafa;
+  }
+  .personal-gallery-page .photo-group-viewer-header {
+    padding-bottom: 16px;
+    border-bottom: 1px solid #dfe2e6;
+  }
+  .personal-gallery-page .saved-photo-tile {
+    padding: 5px;
+    background: white;
+    border: 1px solid #e2e5e9;
+    border-radius: 4px;
+  }
+  .personal-gallery-page .photo-group-viewer-grid img {
+    background: #f0f2f4;
+    border-radius: 2px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .personal-gallery-page [data-personal-collection] {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px 8px;
+  }
+  .personal-gallery-page .photo-group-open { padding: 28px 6px 12px; }
+  .personal-gallery-page .photo-group-stack { height: 145px; }
+  .personal-gallery-page .photo-group-stack img {
+    width: 88px;
+    height: 115px;
+    left: calc(50% - 44px);
+    border-width: 4px;
+    border-bottom-width: 10px;
+  }
+  .personal-gallery-page .photo-group-open::before { left: 6px; }
+  .personal-gallery-page .photo-group-title { font-size: 0.8rem; }
+  .personal-gallery-page .photo-group-viewer { padding: 16px; }
+}
+
+/* Match the daily gallery's blue timeline and compact day badges. */
+@media screen {
+  .personal-gallery-page .gallery-section-intro {
+    padding-bottom: 20px;
+    border-bottom: 1px solid #d4e0ed;
+    margin-bottom: 28px;
+  }
+  .personal-gallery-page .gallery-section-intro h2 {
+    font-size: 1.4rem;
+    letter-spacing: -0.025em;
+  }
+  .personal-gallery-page [data-personal-collection] {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+  .personal-gallery-page .personal-photo-group {
+    position: relative;
+    padding-left: 22px;
+    border-left: 2px solid #d4e0ed;
+  }
+  .personal-gallery-page .personal-photo-group::before {
+    content: "";
+    position: absolute;
+    top: 21px;
+    left: -6px;
+    width: 10px;
+    height: 10px;
+    border: 2px solid #f3f6fa;
+    border-radius: 50%;
+    background: #2866a5;
+  }
+  .personal-gallery-page .photo-group-open {
+    display: grid;
+    grid-template-columns: 180px minmax(0, 1fr) 28px;
+    grid-template-rows: auto auto 1fr;
+    align-items: start;
+    gap: 8px 24px;
+    padding: 14px 12px;
+    text-align: left;
+    border-radius: 4px;
+  }
+  .personal-gallery-page .photo-group-open::before {
+    position: static;
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: start;
+    padding: 5px 9px;
+    border: 1px solid #cfdef0;
+    border-radius: 4px;
+    color: #21558a;
+    background: #e5effb;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+  }
+  .personal-gallery-page .photo-group-open::after {
+    position: static;
+    grid-column: 3;
+    grid-row: 2;
+    content: "\2197";
+    border-radius: 4px;
+  }
+  .personal-gallery-page .photo-group-stack {
+    grid-column: 1;
+    grid-row: 1 / 4;
+    width: 180px;
+    height: 166px;
+    margin: 0;
+  }
+  .personal-gallery-page .photo-group-title {
+    grid-column: 2;
+    grid-row: 2;
+    padding: 0;
+    margin-top: 4px;
+    color: #24486d;
+    font-size: 1.05rem;
+  }
+  .personal-gallery-page .photo-group-count {
+    grid-column: 2;
+    grid-row: 3;
+    align-self: start;
+    margin: 0;
+    color: #626f7d;
+    font-size: 0.75rem;
+  }
+  .personal-gallery-page .photo-group-open:hover { background: #eaf2fc; }
+}
+@media screen and (max-width: 600px) {
+  .personal-gallery-page .personal-photo-group { padding-left: 12px; }
+  .personal-gallery-page .photo-group-open {
+    grid-template-columns: 112px minmax(0, 1fr) 24px;
+    gap: 8px 10px;
+    padding: 12px 4px;
+  }
+  .personal-gallery-page .photo-group-stack { width: 112px; height: 140px; }
+  .personal-gallery-page .photo-group-stack img {
+    width: 82px;
+    height: 110px;
+    left: calc(50% - 41px);
+    border-width: 4px;
+    border-bottom-width: 10px;
+  }
+  .personal-gallery-page .photo-group-title { font-size: 0.9rem; }
+  .personal-gallery-page .photo-group-open::after { width: 24px; height: 24px; }
+}

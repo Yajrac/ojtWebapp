@@ -1,0 +1,88 @@
+@media screen {
+  .daily-gallery-page .gallery-section-intro {
+    padding-bottom: 20px;
+    margin-bottom: 28px;
+    border-bottom: 1px solid #d4e0ed;
+  }
+  .daily-gallery-page .gallery-section-intro h2 {
+    font-size: 1.4rem;
+    letter-spacing: -0.025em;
+  }
+  .daily-gallery-page .gallery-day {
+    position: relative;
+    margin: 0 0 28px;
+    padding: 0 0 0 22px;
+    border: 0;
+    border-left: 2px solid #d4e0ed;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+  .daily-gallery-page .gallery-day::before {
+    content: "";
+    position: absolute;
+    left: -6px;
+    top: 9px;
+    width: 10px;
+    height: 10px;
+    border: 2px solid #f3f6fa;
+    border-radius: 50%;
+    background: #2866a5;
+  }
+  .daily-gallery-page .gallery-day-header {
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  .daily-day-heading { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .daily-day-badge {
+    padding: 5px 9px;
+    border: 1px solid #cfdef0;
+    border-radius: 4px;
+    background: #e5effb;
+    color: #21558a;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+  }
+  .daily-gallery-page .gallery-day h2 { font-size: 1.05rem; color: #24486d; }
+  .daily-gallery-page .gallery-day-header p { margin-top: 7px; font-size: 0.75rem; }
+  .daily-gallery-page .gallery-day-header .gallery-button {
+    min-height: 40px;
+    padding: 8px 12px;
+    background: transparent;
+    border-color: #cbd8e7;
+    color: #21558a;
+    font-size: 0.75rem;
+  }
+  .daily-gallery-page .gallery-day-header .gallery-button:hover { background: #e5effb; border-color: #94b6dc; }
+  .daily-gallery-page .gallery-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+  .daily-gallery-page .gallery-photo {
+    position: relative;
+    border-radius: 4px;
+    border: 1px solid #dce3eb;
+    background: white;
+    overflow: hidden;
+  }
+  .daily-gallery-page .gallery-photo img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+  .daily-gallery-page .gallery-photo figcaption {
+    padding: 9px 12px;
+    font-size: 0.7rem;
+    color: #626f7d;
+    border-top: 1px solid #e7ecf2;
+    background: white;
+  }
+}
+@media screen and (max-width: 600px) {
+  .daily-gallery-page .gallery-day { padding-left: 14px; }
+  .daily-gallery-page .gallery-day-header { gap: 10px; }
+  .daily-gallery-page .gallery-grid { gap: 6px; }
+  .daily-gallery-page .gallery-photo img { aspect-ratio: 1; }
+  .daily-gallery-page .gallery-photo figcaption { padding: 6px; font-size: 0.6rem; }
+  .daily-day-heading { gap: 8px; }
+}
