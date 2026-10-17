@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <script src="../js/app-entry.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Upload Photos | OJT Gallery</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/Home.css" />
+    <link rel="stylesheet" href="../css/shared.css" />
+    <link rel="stylesheet" href="../css/gallery.css" />
+    <link rel="stylesheet" href="../css/gallery-upload.css" />
+      <link rel="stylesheet" href="../css/theme.css" />
+    <script src="../js/personal-photos.js" defer></script>
+    <link rel="stylesheet" href="../css/skeleton.css" />
+    <script src="../js/skeleton.js"></script>
+    <link rel="stylesheet" href="../css/desktop.css" />
+    <link rel="manifest" href="../manifest.webmanifest" />
+    <meta name="theme-color" content="#234e7a" />
+    <script src="../js/offline.js" defer></script>
+</head>
+  <body class="gallery-upload-page app-shell">
+    <div class="device">
+      <header class="gallery-header"><h1>Gallery</h1></header>
+      <main class="gallery-main">
+        <nav class="gallery-subnav" aria-label="Gallery sections">
+          <a href="./gallery.html">Daily Internship</a>
+          <a href="./gallery-personal.html">Personal Photos</a>
+          <a href="./gallery-upload.html" aria-current="page">Upload Photos</a>
+          <a href="./gallery-document.html">Document Preview</a>
+        </nav>
+        <div class="gallery-section-intro">
+          <div>
+            <h2>Upload personal photos</h2>
+          </div>
+        </div>
+        <section class="gallery-day">
+          <div class="upload-photo-grid" aria-label="Personal photo uploads"></div>
+        </section>
+      </main>
+      <nav class="tab-bar" aria-label="Primary">
+        <a class="tab-btn" href="../Home.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 11l9-7 9 7" />
+            <path d="M5 10v9a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1v-9" />
+          </svg>
+          <span>Home</span>
+        </a>
+        <a class="tab-btn active" href="./gallery.html" aria-current="page">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect x="3" y="3" width="18" height="18" rx="3" />
+            <circle cx="8" cy="8" r="1.5" />
+            <path d="m3 17 6-6 4 4 3-3 5 5" />
+          </svg>
+          <span>Gallery</span>
+        </a>
+        <a class="tab-btn" href="./report.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M7 3h7l4 4v14H7z" />
+            <path d="M14 3v4h4" />
+          </svg>
+          <span>Report</span>
+        </a>
+        <a class="tab-btn" href="./profile.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="8" r="3.2" />
+            <path d="M5 20c1.2-3.6 4-5.5 7-5.5S17.8 16.4 19 20" />
+          </svg>
+          <span>Profile</span>
+        </a>
+      </nav>
+    </div>
+    <dialog class="photo-save-modal" aria-labelledby="photo-save-title" aria-describedby="photo-save-description">
+      <div class="photo-save-icon" aria-hidden="true">&#10003;</div>
+      <h2 id="photo-save-title">Photo saved successfully</h2>
+      <p id="photo-save-description">Your photo is saved on this device and ready to view in your collection.</p>
+      <img class="photo-save-preview" alt="" />
+      <p class="photo-save-caption"></p>
+      <div class="photo-save-actions">
+        <button type="button" class="gallery-button" data-close-photo-modal autofocus>Continue uploading</button>
+        <a href="./gallery-personal.html" class="gallery-button primary">View collection</a>
+      </div>
+    </dialog>
+  <script src="../js/profile-identity.js"></script>
+</body>
+</html>

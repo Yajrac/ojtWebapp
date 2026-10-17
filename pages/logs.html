@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <script src="../js/app-entry.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>All Report Logs | OJT Tracker</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/Home.css" />
+    <link rel="stylesheet" href="../css/shared.css" />
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/skeleton.css" />
+    <script src="../js/skeleton.js"></script>
+    <script src="../js/report-status.js" defer></script>
+    <script src="../js/home-reports.js" defer></script>
+      <link rel="stylesheet" href="../css/desktop.css" />
+    <link rel="manifest" href="../manifest.webmanifest" />
+    <meta name="theme-color" content="#234e7a" />
+    <script src="../js/offline.js" defer></script>
+</head>
+  <body class="app-shell logs-page">
+    <div class="device">
+      <header class="app-header"><div class="brand-text"><h1>Report logs</h1></div></header>
+      <main class="app-main">
+        <section class="card all-report-logs" aria-labelledby="all-logs-title">
+          <div class="section-head">
+            <h2 id="all-logs-title">All reports</h2>
+            <span class="section-sub" data-report-count></span>
+            <a class="home-logs-view-all" href="../Home.html">&larr; Back to Home</a>
+          </div>
+          <ul id="home-report-logs" data-report-href="./report.html"><li class="home-reports-empty">Loading reports...</li></ul>
+        </section>
+      </main>
+      <nav class="tab-bar" id="tab-bar" aria-label="Primary">
+    <a class="tab-btn active" href="../Home.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v9a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1v-9"/></svg>
+      <span>Home</span>
+    </a>
+    <a class="tab-btn" href="./gallery.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8" cy="8" r="1.5"/><path d="m3 17 6-6 4 4 3-3 5 5"/></svg>
+      <span>Gallery</span>
+    </a>
+    <a class="tab-btn" href="./report.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4"/></svg>
+      <span>Report</span>
+    </a>
+    <a class="tab-btn" href="./profile.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.2"/><path d="M5 20c1.2-3.6 4-5.5 7-5.5S17.8 16.4 19 20"/></svg>
+      <span>Profile</span>
+    </a>
+  </nav>
+    </div>
+  <script src="../js/profile-identity.js"></script>
+</body>
+</html>

@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <script src="../js/app-entry.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Set Up Your Profile | OJT Tracker</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/onboarding.css" />
+    <link rel="stylesheet" href="../css/shared.css" />
+      <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/skeleton.css" />
+    <script src="../js/skeleton.js"></script>
+    <link rel="stylesheet" href="../css/desktop.css" />
+    <link rel="manifest" href="../manifest.webmanifest" />
+    <meta name="theme-color" content="#234e7a" />
+    <script src="../js/offline.js" defer></script>
+</head>
+  <body class="prototype-setup">
+    <div class="device">
+      <header class="setup-header">
+        <div class="header-row">
+          <a class="icon-btn" href="../index.html" aria-label="Back to welcome">
+            <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M15 18l-6-6 6-6" />
+            </svg>
+          </a>
+          <div>
+            <p class="eyebrow">BEFORE YOU BEGIN</p>
+            <h1>Your OJT Profile</h1>
+          </div>
+        </div>
+      </header>
+      <main class="setup-main setup-form-main">
+        <div class="setup-form-intro">
+          <h2>Let's get to know you.</h2>
+          <p>
+            Fill in your details, internship assignment, and supervisor information to prepare your
+            workspace.
+          </p>
+          <p class="setup-required-note">Fields marked * are required.</p>
+        </div>
+        <!-- Unnamed fields validate in the browser but do not send personal details in the URL. Persistence will be added after the design prototype. -->
+        <form action="../Home.html" method="get" class="setup-profile-form">
+          <section class="setup-form-section" aria-labelledby="section-01">
+            <div class="setup-section-heading">
+              <span class="setup-section-number">01</span>
+              <div>
+                <h2 id="section-01">Personal information</h2>
+                <p>Tell us about yourself and your school.</p>
+              </div>
+            </div>
+            <div class="setup-field-grid">
+              <div class="field-group">
+                <label for="q-name">
+                  Full name
+                  <span class="required-mark" aria-hidden="true">*</span>
+                </label>
+                <input
+                  class="text-input"
+                  id="q-name"
+                  type="text"
+                  placeholder="Juan Dela Cruz"
+                  required
+                  autocomplete="name"
+                />
+              </div>
+              <div class="field-group">
+                <label for="q-email">
+                  Email address
+                  <span class="required-mark" aria-hidden="true">*</span>
+                </label>
+                <input
+                  class="text-input"
+                  id="q-email"
+                  type="email"
+                  placeholder="juan@student.edu.ph"
+                  required
+                  autocomplete="email"
+                />
+              </div>
+              <div class="field-group">
+                <label for="q-phone">Phone number</label>
+                <input
+                  class="text-input"
+                  id="q-phone"
+                  type="tel"
+                  placeholder="09XX XXX XXXX"
+                  autocomplete="tel"
+                />
+              </div>
+              <div class="field-group">
+                <label for="q-school">
+                  School / University
+                  <span class="required-mark" aria-hidden="true">*</span>
+                </label>
+                <select class="text-input" id="q-school" required>
+                  <option value="">Select school</option>
+                  <option>Southern Luzon Technological College Foundation Pioduran Inc</option>
+                  <option>West Coast College</option>
+                  <option value="other">Other</option>
+                </select>
+                <div data-other-field="q-school" hidden>
+                  <label for="q-school-other">School name</label>
+                  <input class="text-input" id="q-school-other" type="text" placeholder="Enter your school" disabled />
+                </div>
+              </div>
+              <div class="field-group">
+                <label for="q-course">
+                  Course / Program
+                  <span class="required-mark" aria-hidden="true">*</span>
+                </label>
+                <select class="text-input" id="q-course" required>
+                  <option value="">Select course</option>
+                  <option value="BSCS">Bachelor of Science in Computer Science (BSCS)</option>
+                  <option value="BSED">Bachelor of Secondary Education (BSED)</option>
+                  <option value="other">Other</option>
+                </select>
+                <div data-other-field="q-course" hidden>
+                  <label for="q-course-other">Course / Program name</label>
+                  <input class="text-input" id="q-course-other" type="text" placeholder="Enter your course" disabled />
+                </div>
+              </div>
+              <div class="field-group">
+                <label for="q-year">Year level</label>
+                <select class="text-input" id="q-year">
+                  <option value="">Select year level</option>
+                  <option value="1st year">1st year</option>
+                  <option value="2nd year">2nd year</option>
+                  <option value="3rd year">3rd year</option>
+                  <option value="4th year">4th year</option>
+                </select>
+              </div>
+            </div>
+          </section>
+          <section class="setup-form-section" aria-labelledby="section-02">
+            <div class="setup-section-heading">
+              <span class="setup-section-number">02</span>
+              <div>
+                <h2 id="section-02">Internship assignment</h2>
+                <p>Where will you render your training hours?</p>
+              </div>
+            </div>
+            <div class="setup-field-grid">
+              <div class="field-group">
+                <label for="q-company">
+                  Host company / Office
+                  <span class="required-mark" aria-hidden="true">*</span>
+                </label>
+                <input
+                  class="text-input"
+                  id="q-company"
+                  type="text"
+                  placeholder="Municipal Disaster Risk Reduction Office"
+                  required
+                />
+              </div>
+              <div class="field-group">
+                <label for="q-location">Office address / Location</label>
+                <input
+                  class="text-input"
+                  id="q-location"
+                  type="text"
+                  placeholder="Building, street, municipality"
+                  autocomplete="street-address"
+                />
+              </div>
+            </div>
+          </section>
+          <section class="setup-form-section" aria-labelledby="section-03">
+            <div class="setup-section-heading">
+              <span class="setup-section-number">03</span>
+              <div>
+                <h2 id="section-03">Supervisor details</h2>
+                <p>Who will oversee your internship?</p>
+              </div>
+            </div>
+            <div class="setup-field-grid">
+              <div class="field-group">
+                <label for="q-supervisor">
+                  Supervisor / Department head
+                  <span class="required-mark" aria-hidden="true">*</span>
+                </label>
+                <input
+                  class="text-input"
+                  id="q-supervisor"
+                  type="text"
+                  placeholder="Maria Reyes"
+                  required
+                />
+              </div>
+              <div class="field-group">
+                <label for="q-supervisor-role">Position / Job title</label>
+                <input
+                  class="text-input"
+                  id="q-supervisor-role"
+                  type="text"
+                  placeholder="Department Head"
+                />
+              </div>
+              <div class="field-group">
+                <label for="q-supervisor-email">Supervisor email (optional)</label>
+                <input
+                  class="text-input"
+                  id="q-supervisor-email"
+                  type="email"
+                  placeholder="supervisor@company.com"
+                />
+              </div>
+              <div class="field-group">
+                <label for="q-supervisor-phone">Supervisor phone (optional)</label>
+                <input
+                  class="text-input"
+                  id="q-supervisor-phone"
+                  type="tel"
+                  placeholder="09XX XXX XXXX"
+                />
+              </div>
+            </div>
+          </section>
+          <section class="setup-form-section" aria-labelledby="section-04">
+            <div class="setup-section-heading">
+              <span class="setup-section-number">04</span>
+              <div>
+                <h2 id="section-04">Training schedule</h2>
+                <p>Set your starting point for the internship.</p>
+              </div>
+            </div>
+            <div class="setup-field-grid">
+              <div class="field-group">
+                <label for="q-hours-required">
+                  Required OJT hours
+                  <span class="required-mark" aria-hidden="true">*</span>
+                </label>
+                <input
+                  class="text-input"
+                  id="q-hours-required"
+                  type="number"
+                  placeholder="e.g. 500"
+                  required
+                  min="1"
+                  step="1"
+                />
+              </div>
+              <div class="field-group">
+                <label for="q-start-date">
+                  Start date
+                  <span class="required-mark" aria-hidden="true">*</span>
+                </label>
+                <input class="text-input" id="q-start-date" type="date" required />
+              </div>
+              <div class="field-group">
+                <label for="q-hours-rendered">Hours already completed (optional)</label>
+                <input
+                  class="text-input"
+                  id="q-hours-rendered"
+                  type="number"
+                  placeholder="0 if you have not started"
+                  min="0"
+                  step="1"
+                />
+              </div>
+            </div>
+          </section>
+          <div class="setup-form-submit">
+            <p>
+              Your profile will be saved on this device.
+            </p>
+            <button class="btn primary" type="submit">Continue to Home &rarr;</button>
+          </div>
+        </form>
+      </main>
+    </div>
+    <script src="../js/profile-validation.js"></script>
+    <script src="../js/onboarding.js"></script>
+  <script src="../js/profile-identity.js"></script>
+</body>
+</html>
