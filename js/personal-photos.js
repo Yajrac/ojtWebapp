@@ -53,7 +53,7 @@
     picker.accept = 'image/*';
     picker.multiple = true;
     pickerLabel.append(picker);
-    const hint = element('p', 'gallery-note', 'Select one or more images, up to 20 MB each. On a laptop, use Ctrl or Shift to select multiple photos.');
+    const hint = element('p', 'gallery-note', 'Select one or more images, up to 20 MB each. On a laptop.');
     pickerLabel.append(hint);
     const save = element('button', 'gallery-button primary', 'Save photos');
     save.type = 'button';
