@@ -461,7 +461,7 @@
       documentGrid.style.setProperty('--paper-h', height);
       printStyle.textContent = `@media print { @page { size: ${width}mm ${height}mm; margin: 0; } }`;
       documentGrid.hidden = false;
-      document.querySelector('[data-paper-summary]').textContent = `${size.selectedOptions[0].textContent} · 4 columns × 5 rows · Up to 20 photos per page`;
+      document.querySelector('[data-paper-summary]').textContent = `${size.selectedOptions[0].textContent} · 20 photos per page`;
     }
     apply();
     document.querySelectorAll('[data-document-action]').forEach(button => {
